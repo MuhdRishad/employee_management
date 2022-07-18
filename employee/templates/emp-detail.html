@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{%block body_block%}
+ <h1 class="text-center my-5">Employee Detail</h1>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>E-Mail</th>
+                    <th>Designation</th>
+                    <th>Experience</th>
+                    <th>Salary</th>
+                    <th>Place</th>
+                    <th>Profile pic</th>
+                </tr>
+                <tr>
+                    <td>{{employee.id}}</td>
+                    <td>{{employee.emp_name}}</td>
+                    <td>{{employee.emp_email}}</td>
+                    <td>{{employee.emp_designation}}</td>
+                    <td>{{employee.emp_experience}}</td>
+                    <td>{{employee.emp_salary}}</td>
+                    <td>{{employee.emp_place}}</td>
+                    <td><img src="{{employee.profile_pic.url}}" alt="" height="80"></td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="col-1"></div>
+    </div>
+{%endblock%}

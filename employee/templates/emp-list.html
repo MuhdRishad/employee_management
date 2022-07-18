@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block body_block %}
+ <div class="row mt-3">
+        <div class="col-3"></div>
+        <div class="col-6">
+
+            {%if messages%}
+            {%for msg in messages%}
+            {%if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS%}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{msg}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {%endif%}
+            {%if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR%}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{msg}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {%endif%}
+            {%endfor%}
+            {%endif%}
+
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table">
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Employee Email</th>
+                    <th>Action</th>
+                </tr>
+                {%for emp in employees%}
+                <tr>
+                    <td>{{emp.id}}</td>
+                    <td>{{emp.emp_name}}</td>
+                    <td>{{emp.emp_email}}</td>
+                    <td>
+                        <a href="{%url 'emp-detail' emp.id%}" class="text-decoration-none">View</a>
+                        <a href="{%url 'emp-edit' emp.id%}" class="text-decoration-none">Edit</a>
+                        <a href="{%url 'emp-remove' emp.id%}" class="text-decoration-none">Delete</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="col-2"></div>
+    </div>
+{%endblock%}

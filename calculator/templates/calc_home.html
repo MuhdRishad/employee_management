@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+<h1 class="welcome">Welcome Calculator Home</h1>
+<a href="{%url 'calc-home'%}">Home</a><br>
+<a href="{%url 'calc-add'%}">Addition</a> <br>
+<a href="{%url 'calc-sub'%}">Substraction</a> <br>
+<a href="{%url 'calc-multi'%}">Multiplication</a> <br>
+<a href="{%url 'calc-division'%}">Division</a> <br>
+<a href="{%url 'calc-exp'%}">Exponent</a> <br>
+<a href="{%url 'calc-modules'%}">Modules</a> <br>
+<a href="{%url 'calc-factorial'%}">Factorial</a> <br>
+<a href="{%url 'calc-wordcount'%}">Wordcount</a> <br>
+<a href="{%url 'calc-primenumber'%}">Prime number</a> <br>
+</body>
+</html>

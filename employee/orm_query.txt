@@ -1,0 +1,56 @@
+
+            ORM query for cteating ( create() )
+            ----------------------
+Employee.objects.create(emp_name="Arshad",
+                        emp_email="arshu@gmial.com",
+                        emp_designation="developer",
+                        emp_experince = 2,
+                        emp_salary=33000)
+
+
+         ORM query for retreving all object ( all() )
+         ----------------------------------
+qs=Employee.objects.all()
+print(qs)
+print(qs.query)   for the query
+
+
+           ORM query for filtering  ( filter() )
+           -----------------------
+qs = Employee.objects.filter(emp_designation="developer")
+
+? print all employees whose salary > 24000
+ORM: qs = Employee.objects.filter(emp_salary__gt=24000)
+     * for greater than = __gt
+     * for less than = __lt
+     * for graterthan or equal to = __gte
+     * for lessthan or equal to = __lte
+
+? print all employee exclude devoloper
+ORM : qs = Employee.objects.all().exclude(emp_designation = "developer")
+
+? print employee details where designation = "developer" and salary > 30000
+ORM : qs = Employee.objects.filter(emp_designation = "Devoleper,emp_salary__gt=30000")
+
+
+        ORM query for a specific employee ( get() )
+        ---------------------------------
+qs = Employee.objects.get(id=2)
+
+
+        ORM query for editing  ( save() )
+        ---------------------
+qs = Employee.objects.get(id=2)
+qs.emp_experince = 4
+qs.save()
+
+
+        ORM query for deleting  ( delete() )
+        ----------------------
+qs = Employee.objects.get(id=6)
+qs.delete()
+
+
+        ORM query for Checking case insensitive
+        ---------------------------------------
+qs = Employee.objects.get(emp_name__iexact="rishad")

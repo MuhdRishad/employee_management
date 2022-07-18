@@ -1,0 +1,94 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h1 class="my-4 "><b>CREATE EMPLOYEE</b></h1>
+
+            {%if messages%}
+            {%for msg in messages%}
+            {%if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS%}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{msg}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {%endif%}
+            {%if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR%}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{msg}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {%endif%}
+            {%endfor%}
+            {%endif%}
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="shadow-lg">
+        <div class="row">
+            <div class="col-2">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {%csrf_token%}
+                    <div class="my-5 mx-3">
+                        <div class="card" style="width: 11rem;">
+                            <img src="{%static 'assets/avatar.png'%}" class="card-img-top" alt="...">
+                            <label for="id_profile_pic" class="bg-primary px-2 py-1 m-2 text-center text-white" style="cursor: pointer;"><b>Upload
+                                Image</b></label>
+                            <input type="file" name="profile_pic" id="id_profile_pic" class="py-2 px-3 d-none"
+                                   >
+                        </div>
+                    </div>
+            </div>
+            <div class="col-5">
+                <div class="px-5 py-5">
+                    <div class="fieldWrapper my-3">
+                        {{form.emp_name.errors}}
+                        <label for="{{form.emp_name.id_for_label}}">Name*</label>
+                        {{form.emp_name}}
+                    </div>
+
+                    <div class="fieldWrapper my-3">
+                        {{form.emp_designation.errors}}
+                        <label for="{{form.emp_designation.id_for_label}}">Designation*</label>
+                        {{form.emp_designation}}
+                    </div>
+
+                    <div class="fieldWrapper my-3">
+                        {{form.emp_salary.errors}}
+                        <label for="{{form.emp_salary.id_for_label}}">Salary*</label>
+                        {{form.emp_salary}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="px-5 py-5 ">
+                    <div class="fieldWrapper my-3 ">
+                        {{form.emp_email.errors}}
+                        {{form.emp_email.label_tag}}
+                        {{form.emp_email}}
+                    </div>
+
+                    <div class="fieldWrapper my-3">
+                        {{form.emp_experience.errors}}
+                        {{form.emp_experience.label_tag}}
+                        {{form.emp_experience}}
+                    </div>
+
+                    <div class="fieldWrapper my-3">
+                        {{form.emp_place.errors}}
+                        {{form.emp_place.label_tag}}
+                        {{form.emp_place}}
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end pt-3">
+                        <button class="btn btn-primary " type="submit">Add Employee</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
