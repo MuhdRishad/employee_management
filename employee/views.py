@@ -41,6 +41,7 @@ from employee.forms import EmployeeCreateForm,UserResgistrationForm,UserLogInFor
 from django.contrib.auth import authenticate,login,logout
 from django.utils.decorators import method_decorator
 
+
 def signin_required(fun):
     def wrapper(request,*args,**kwargs):
         if request.user.is_authenticated:

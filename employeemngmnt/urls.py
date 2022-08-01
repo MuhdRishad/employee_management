@@ -18,9 +18,12 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('employee/',include("employee.urls")),
     path('calculator/',include("calculator.urls")),
-    path('math/',include("mathfunctions.urls"))
+    path('math/',include("mathfunctions.urls")),
+    path('api/',include("api.urls")),
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
